@@ -81,7 +81,7 @@ class TestBenchBase(unittest.TestCase):
 		frappe_tmp_path = "/tmp/frappe"
 
 		if not os.path.exists(frappe_tmp_path):
-			bench.utils.exec_cmd(f"git clone https://github.com/wtwong316/frappe -b {FRAPPE_BRANCH} --depth 1 --origin upstream {frappe_tmp_path}")
+			bench.utils.exec_cmd(f"git clone https://github.com/oxytrack/frappe -b {FRAPPE_BRANCH} --depth 1 --origin upstream {frappe_tmp_path}")
 
 		kwargs.update(dict(
 			python=sys.executable,
@@ -92,7 +92,7 @@ class TestBenchBase(unittest.TestCase):
 
 		if not os.path.exists(os.path.join(self.benches_path, bench_name)):
 			bench.utils.init(bench_name, **kwargs)
-			bench.utils.exec_cmd("git remote set-url upstream https://github.com/wtwong316/frappe", cwd=os.path.join(self.benches_path, bench_name, "apps", "frappe"))
+			bench.utils.exec_cmd("git remote set-url upstream https://github.com/oxytrack/frappe", cwd=os.path.join(self.benches_path, bench_name, "apps", "frappe"))
 
 	def file_exists(self, path):
 		if os.environ.get("CI"):

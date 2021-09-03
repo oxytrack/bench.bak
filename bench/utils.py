@@ -104,7 +104,7 @@ def get_frappe(bench_path='.'):
 	frappe = get_env_cmd('frappe', bench_path=bench_path)
 	if not os.path.exists(frappe):
 		print('frappe app is not installed. Run the following command to install frappe')
-		print('bench get-app https://github.com/wtwong316/frappe.git')
+		print('bench get-app https://github.com/oxytrack/frappe.git')
 	return frappe
 
 
@@ -159,7 +159,7 @@ def init(path, apps_path=None, no_procfile=False, no_backups=False,
 		clone_apps_from(bench_path=path, clone_from=clone_from, update_app=not clone_without_update)
 	else:
 		if not frappe_path:
-			frappe_path = 'https://github.com/wtwong316/frappe.git'
+			frappe_path = 'https://github.com/oxytrack/frappe.git'
 
 		get_app(frappe_path, branch=frappe_branch, bench_path=path, skip_assets=True, verbose=verbose)
 
@@ -908,7 +908,7 @@ def setup_fonts():
 	if os.path.exists('/etc/fonts_backup'):
 		return
 
-	exec_cmd("git clone https://github.com/wtwong316/fonts.git", cwd='/tmp')
+	exec_cmd("git clone https://github.com/oxytrack/fonts.git", cwd='/tmp')
 	os.rename('/etc/fonts', '/etc/fonts_backup')
 	os.rename('/usr/share/fonts', '/usr/share/fonts_backup')
 	os.rename(os.path.join(fonts_path, 'etc_fonts'), '/etc/fonts')
